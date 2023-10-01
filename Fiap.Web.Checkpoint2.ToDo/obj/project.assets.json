@@ -9549,11 +9549,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FIAP-2TDSS\\2-semestre\\Enterprise Application Development\\Checkpoint\\2\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo.csproj",
+      "projectUniqueName": "D:\\enterprise-checkpoint-2\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo.csproj",
       "projectName": "Fiap.Web.Checkpoint2.ToDo",
-      "projectPath": "D:\\FIAP-2TDSS\\2-semestre\\Enterprise Application Development\\Checkpoint\\2\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo.csproj",
+      "projectPath": "D:\\enterprise-checkpoint-2\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo.csproj",
       "packagesPath": "C:\\Users\\Luans\\.nuget\\packages\\",
-      "outputPath": "D:\\FIAP-2TDSS\\2-semestre\\Enterprise Application Development\\Checkpoint\\2\\Fiap.Web.Checkpoint2.ToDo\\Fiap.Web.Checkpoint2.ToDo\\obj\\",
+      "outputPath": "D:\\enterprise-checkpoint-2\\Fiap.Web.Checkpoint2.ToDo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Luans\\AppData\\Roaming\\NuGet\\NuGet.Config",
