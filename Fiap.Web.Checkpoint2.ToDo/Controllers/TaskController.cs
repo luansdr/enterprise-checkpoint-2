@@ -87,25 +87,6 @@ namespace Fiap.Web.Checkpoint2.ToDo.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult DeleteConfirmed(int id)
-        {
-            var task = taskItems.Find(t => t.Id == id);
-            if (task != null)
-            {
-                taskItems.Remove(task);
-                TempData["msg"] = "Tarefa excluída com sucesso!";
-                TempData["color"] = "success";
-            }
-            else
-            {
-                TempData["msg"] = "Tarefa não encontrada!";
-                TempData["color"] = "danger";
-            }
-
-            return RedirectToAction("Index");
-        }
-
         [HttpGet]
         public IActionResult Search(int id)
         {
