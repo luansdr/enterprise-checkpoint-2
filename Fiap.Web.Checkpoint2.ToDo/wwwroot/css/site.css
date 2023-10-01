@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.border-gray-top {
+    border-top: 1px solid #686868;
+}
+
+.border-gray-bottom {
+    border-bottom: 1px solid #686868;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.table {
+    table-layout: fixed; 
+    width: 100%; 
+}
+
+.table th, .table td {
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap; 
+}
+
+.modal-body {
+    max-height: 400px; 
+    overflow-y: auto; 
+}

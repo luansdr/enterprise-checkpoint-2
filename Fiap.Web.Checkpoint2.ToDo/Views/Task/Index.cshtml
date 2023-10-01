@@ -1,0 +1,101 @@
+﻿@model List<TaskItem>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1 class="text-center mt-3">ToDo List</h1>
+
+<div class="container mt-4">
+    <alert mensagem="@TempData["msg"]" color="@TempData["color"]"></alert>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="create" class="btn btn-primary">Cadastrar</a>
+    </div>
+
+
+    <div class="mx-auto text-center align-self-center w-100 table-bordered">
+        @if (Model.Any())
+        {
+            <table class="table table-hover w-75 mx-auto">
+                <thead class="thead-light">
+                    <tr>
+                        <th style="width: 10%;">Concluída</th>
+                        <th style="width: 10%;">ID</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var task in Model)
+                    {
+                        <tr class="@(task.IsCompleted ? "table-success" : "")">
+                            <td>
+                                <form asp-action="MarkAsCompleted" method="post">
+                                    <input type="hidden" name="id" value="@task.Id" />
+                                    <button-custom type="submit" icon="@(task.IsCompleted ? "bi bi-check-circle" : "bi bi-circle")" color="link"></button-custom>
+                                </form>
+                            </td>
+                            <td class="align-middle">@task.Id</td>
+                            <td class="align-middle nowrap">@task.Title</td>
+                            <td class="align-middle nowrap">@task.Description</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                                <button-custom onclick="key.value = @task.Id" type="button" color="danger" icon="bi bi-trash3-fill" data-bs-toggle="modal" data-bs-target="#deleteModal"></button-custom>
+                                <button-custom type="button" onclick="loadTaskDetails(@task.Id)" color="info" icon="bi bi-eye-fill"></button-custom>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-center">Nenhuma tarefa foi Incluída!</p>
+        }
+    </div>
+</div>
+
+<div id="taskDetailsContainer"></div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Tem certeza de que deseja excluir essa tarefa?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="delete">
+                    <input type="hidden" name="id" id="key" />
+                    <button-custom type="button" label="Não" data-bs-dismiss="modal"></button-custom>
+                    <button-custom type="submit" label="Sim" color="danger">Sim</button-custom>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function loadTaskDetails(taskId) {
+        $.get("/Task/Search/" + taskId, function (data) {
+            $("#taskDetailsContainer").html(data);
+            $('#taskDetailsModal').modal('show');
+        });
+    }
+
+    function showTaskDetails(task) {
+        var modalBody = document.querySelector("#taskDetailsModal .modal-body");
+        modalBody.innerHTML = "Detalhes da Tarefa #" + task;
+        $('#taskDetailsModal').modal('show');
+    }
+
+
+</script>

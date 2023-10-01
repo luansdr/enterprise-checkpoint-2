@@ -1,0 +1,18 @@
+﻿@model TaskItem
+<div class="modal fade" id="taskDetailsModal" tabindex="-1" role="dialog" aria-labelledby="taskDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taskDetailsModalLabel">Detalhes da Tarefa #@Model.Id</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="word-wrap: break-word;">
+                <p><b>ID:</b>  @Model.Id</p>
+                <p><b>Título:</b> @Model.Title</p>
+                <p><b>Descrição:</b> @Model.Description</p>
+            </div>
+        </div>
+    </div>
+</div>
